@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-.pergunta{margin-bottom:22px}
+.pergunta{margin-bottom:22px;padding:10px;border-radius:6px}
 .pergunta h3{font-size:16px}
 button{
   padding:14px;
@@ -23,6 +23,11 @@ button:hover{background:#146c43}
   font-size:20px;
   font-weight:bold;
 }
+#cronometro{
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
 </style>
 </head>
 
@@ -37,36 +42,65 @@ button:hover{background:#146c43}
 <h1>📝 Simulado ENEM – 45 Questões</h1>
 <p>Linguagens, Matemática, Ciências Humanas e Ciências da Natureza.</p>
 
+<p id="cronometro">Tempo: 05:00</p>
+
 <form id="quiz">
 
-<!-- QUESTÕES -->
 <script>
 const questoes = [
+
+/* ====== LINGUAGENS (1 a 10) ====== */
 ["Linguagens","A função principal da propaganda é","Convencer","Narrar","Informar","Explicar","Relatar","a"],
 ["Linguagens","Um texto dissertativo tem como objetivo","Defender ideias","Contar histórias","Descrever lugares","Ensinar regras","Relatar fatos","a"],
 ["Linguagens","Figura de linguagem que exagera","Hipérbole","Metáfora","Ironia","Eufemismo","Antítese","a"],
 ["Linguagens","Texto que expressa sentimentos","Poético","Narrativo","Injuntivo","Expositivo","Argumentativo","a"],
 ["Linguagens","Uso correto da linguagem","Norma-padrão","Gíria","Regionalismo","Erro","Dialeto","a"],
+["Linguagens","Qual é a função da linguagem em uma notícia?","Informar","Entreter","Convencer","Opinar","Narrar","a"],
+["Linguagens","Um texto instrucional serve para","Dar instruções","Narrar histórias","Argumentar","Poetizar","Criticar","a"],
+["Linguagens","Antítese é uma figura de linguagem que","Contrapõe ideias","Exagera","Diminui","Imita","Confunde","a"],
+["Linguagens","Metáfora compara","Coisas diferentes","Coisas iguais","Ações","Cores","Sentimentos","a"],
+["Linguagens","A norma culta é importante para","Compreensão formal","Gírias","Expressão popular","Dialetos","Erros de escrita","a"],
 
+/* ====== MATEMÁTICA (11 a 20) ====== */
 ["Matemática","10% de 300 é","30","10","20","40","50","a"],
 ["Matemática","2³ é","8","6","4","16","12","a"],
 ["Matemática","Uma razão 2:4 é","1/2","2/4","4/2","1/4","2","a"],
 ["Matemática","Área do quadrado de lado 4","16","8","12","20","4","a"],
 ["Matemática","50% equivale a","1/2","1/3","1/4","2/3","3/4","a"],
+["Matemática","A soma de ângulos internos de um triângulo é","180°","90°","360°","270°","150°","a"],
+["Matemática","Raiz quadrada de 81","9","8","7","6","10","a"],
+["Matemática","Se x + 5 = 12, então x =","7","5","12","17","6","a"],
+["Matemática","O dobro de 15 é","30","20","25","35","40","a"],
+["Matemática","Qual número é primo?","13","15","21","27","1","a"],
 
+/* ====== HUMANAS (21 a 30) ====== */
 ["Humanas","A Revolução Industrial causou","Urbanização","Êxodo rural","Industrialização","Todas","Nenhuma","d"],
 ["Humanas","Democracia significa","Poder do povo","Ditadura","Monarquia","Teocracia","Absolutismo","a"],
 ["Humanas","Capital do Brasil","Brasília","Rio","SP","BH","Salvador","a"],
 ["Humanas","Globalização é","Integração mundial","Isolamento","Colonização","Imperialismo","Socialismo","a"],
 ["Humanas","Cidadania envolve","Direitos e deveres","Só deveres","Só direitos","Leis","Voto","a"],
+["Humanas","A independência do Brasil ocorreu em","1822","1808","1889","1815","1824","a"],
+["Humanas","Quem foi Tiradentes?","Líder da Inconfidência Mineira","Imperador","Presidente","General","Poeta","a"],
+["Humanas","O Iluminismo defendia","Razão e liberdade","Religião cega","Monarquia absoluta","Tradição","Misticismo","a"],
+["Humanas","O movimento chamado Regência foi","Período de governo de regentes","Guerra","Revolução","Independência","Ditadura","a"],
+["Humanas","A Constituição de 1988 é conhecida como","Constituição Cidadã","Constituição Militar","Carta Régia","Lei de 88","Código Civil","a"],
 
+/* ====== NATUREZA (31 a 45) ====== */
 ["Natureza","Fotossíntese ocorre no","Cloroplasto","Mitocôndria","Núcleo","Ribossomo","Lisossomo","a"],
 ["Natureza","Planeta em que vivemos","Terra","Marte","Vênus","Júpiter","Saturno","a"],
 ["Natureza","Água ferve a","100°C","50°C","0°C","200°C","150°C","a"],
 ["Natureza","Estado da água a 25°C","Líquido","Sólido","Gasoso","Plasma","Nenhum","a"],
 ["Natureza","Oxigênio é","Gás","Líquido","Sólido","Metal","Ácido","a"],
-
-// Questões 21 a 45 (modelo ENEM – mesmo padrão)
+["Natureza","O Sol é uma","Estrela","Planeta","Lua","Cometa","Asteroide","a"],
+["Natureza","O corpo humano possui quantos ossos aproximadamente?","206","200","180","210","250","a"],
+["Natureza","A camada da Terra com magma é","Manto","Córtex","Núcleo externo","Litosfera","Crosta","a"],
+["Natureza","O ciclo da água envolve","Evaporação e precipitação","Somente evaporação","Somente precipitação","Transpiração","Nenhum","a"],
+["Natureza","Fotossíntese produz","Oxigênio e glicose","CO2 e água","Nitrogênio","Hidrogênio","Metano","a"],
+["Natureza","Qual gás é essencial para a respiração?","Oxigênio","Nitrogênio","CO2","Hélio","Argônio","a"],
+["Natureza","A Lua influencia","Marés","Vento","Chuvas","Temperatura","Tsunami","a"],
+["Natureza","Qual é a função dos rins?","Filtrar sangue","Produzir hormônio","Respirar","Digestionar","Armazenar glicose","a"],
+["Natureza","O planeta vermelho é","Marte","Júpiter","Vênus","Saturno","Mercúrio","a"],
+["Natureza","A atmosfera terrestre é composta majoritariamente por","Nitrogênio","Oxigênio","CO2","Hélio","Argônio","a"]
 ];
 
 let numero = 1;
@@ -83,6 +117,48 @@ document.write(`
 `);
 numero++;
 });
+
+// CRONÔMETRO
+let minutos = 5;
+let segundos = 0;
+let timer = setInterval(() => {
+  if(segundos === 0){
+    if(minutos === 0){
+      clearInterval(timer);
+      corrigir();
+      alert("⏰ Tempo esgotado!");
+      return;
+    }
+    minutos--;
+    segundos = 59;
+  } else {
+    segundos--;
+  }
+  document.getElementById("cronometro").textContent =
+    `Tempo: ${minutos.toString().padStart(2,'0')}:${segundos.toString().padStart(2,'0')}`;
+}, 1000);
+
+// FUNÇÃO CORRIGIR
+function corrigir(){
+  let pontos = 0;
+  questoes.forEach((q,i)=>{
+    const marcada = document.querySelector(`input[name="q${i}"]:checked`);
+    const div = document.querySelectorAll(".pergunta")[i];
+    div.style.background = "white"; // reset
+    if(marcada){
+      if(marcada.value === q[7]){
+        pontos++;
+        div.style.background = "#d4edda"; // verde = certo
+      } else {
+        div.style.background = "#f8d7da"; // vermelho = errado
+      }
+    } else {
+      div.style.background = "#fff3cd"; // amarelo = não respondeu
+    }
+  });
+  document.getElementById("resultado").innerHTML =
+    `🎯 Você acertou ${pontos} de ${questoes.length} questões.`;
+}
 </script>
 
 <button type="button" onclick="corrigir()">Finalizar Simulado</button>
@@ -94,18 +170,6 @@ numero++;
 <footer>
 © 2025 – Plataforma de Estudos
 </footer>
-
-<script>
-function corrigir(){
-let pontos = 0;
-questoes.forEach((q,i)=>{
-const marcada = document.querySelector(`input[name="q${i}"]:checked`);
-if(marcada && marcada.value === q[7]) pontos++;
-});
-document.getElementById("resultado").innerHTML =
-`🎯 Você acertou ${pontos} de ${questoes.length} questões.`;
-}
-</script>
 
 </body>
 </html>
