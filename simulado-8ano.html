@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Simulado 8º Ano</title>
+<style>
+body{font-family:Arial;background:#f4f6f8}
+main{max-width:800px;margin:20px auto;background:white;padding:20px;border-radius:8px}
+button{padding:10px;margin-top:10px}
+</style>
+</head>
+<body>
+
+<main>
+<h1>Simulado – 8º Ano</h1>
+
+<form id="quiz">
+
+<p>1️⃣ Qual é uma fração?</p>
+<input type="radio" name="q1" value="a"> 5<br>
+<input type="radio" name="q1" value="b"> 1/2<br>
+<input type="radio" name="q1" value="c"> 10<br>
+
+<p>2️⃣ O que é um substantivo?</p>
+<input type="radio" name="q2" value="a"> Nome de seres e coisas<br>
+<input type="radio" name="q2" value="b"> Ação<br>
+<input type="radio" name="q2" value="c"> Qualidade<br>
+
+<p>3️⃣ O que estuda a História?</p>
+<input type="radio" name="q3" value="a"> A natureza<br>
+<input type="radio" name="q3" value="b"> O passado humano<br>
+<input type="radio" name="q3" value="c"> Os números<br>
+
+<button type="button" onclick="corrigir()">Corrigir</button>
+</form>
+
+<p id="resultado"></p>
+
+<a href="simulados.html">⬅ Voltar</a>
+</main>
+
+<script>
+function corrigir(){
+let pontos=0;
+if(document.querySelector('input[name="q1"]:checked')?.value=="b") pontos++;
+if(document.querySelector('input[name="q2"]:checked')?.value=="a") pontos++;
+if(document.querySelector('input[name="q3"]:checked')?.value=="b") pontos++;
+
+document.getElementById("resultado").innerHTML =
+"Você acertou " + pontos + " de 3 questões.";
+}
+</script>
+
+</body>
+</html>
