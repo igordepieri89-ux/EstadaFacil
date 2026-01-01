@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Simulado Completo</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.pergunta{margin-bottom:20px}
+.pergunta h3{margin-bottom:5px}
+button{
+  padding:12px;
+  background:#0d6efd;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+button:hover{background:#084298}
+.resultado{
+  margin-top:20px;
+  font-size:18px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">Início</a>
+  <a href="simulados.html">Simulados</a>
+</nav>
+
+<main>
+<h1>📝 Simulado Geral – 6º ao 9º Ano</h1>
+
+<form id="quiz">
+
+<!-- MATEMÁTICA -->
+<div class="pergunta">
+<h3>1️⃣ (Matemática) Quanto é 3 × 4?</h3>
+<input type="radio" name="q1" value="a"> 7<br>
+<input type="radio" name="q1" value="b"> 12<br>
+<input type="radio" name="q1" value="c"> 14<br>
+</div>
+
+<div class="pergunta">
+<h3>2️⃣ (Matemática) Qual é uma fração?</h3>
+<input type="radio" name="q2" value="a"> 5<br>
+<input type="radio" name="q2" value="b"> 1/2<br>
+<input type="radio" name="q2" value="c"> 10<br>
+</div>
+
+<!-- PORTUGUÊS -->
+<div class="pergunta">
+<h3>3️⃣ (Português) Substantivo é:</h3>
+<input type="radio" name="q3" value="a"> Nome de seres e coisas<br>
+<input type="radio" name="q3" value="b"> Ação<br>
+<input type="radio" name="q3" value="c"> Qualidade<br>
+</div>
+
+<div class="pergunta">
+<h3>4️⃣ (Português) Qual é um verbo?</h3>
+<input type="radio" name="q4" value="a"> Casa<br>
+<input type="radio" name="q4" value="b"> Bonito<br>
+<input type="radio" name="q4" value="c"> Correr<br>
+</div>
+
+<!-- HISTÓRIA -->
+<div class="pergunta">
+<h3>5️⃣ (História) O que a História estuda?</h3>
+<input type="radio" name="q5" value="a"> O passado humano<br>
+<input type="radio" name="q5" value="b"> Os números<br>
+<input type="radio" name="q5" value="c"> A natureza<br>
+</div>
+
+<!-- GEOGRAFIA -->
+<div class="pergunta">
+<h3>6️⃣ (Geografia) O que é um continente?</h3>
+<input type="radio" name="q6" value="a"> Um país<br>
+<input type="radio" name="q6" value="b"> Grande porção de terra<br>
+<input type="radio" name="q6" value="c"> Um oceano<br>
+</div>
+
+<!-- CIÊNCIAS -->
+<div class="pergunta">
+<h3>7️⃣ (Ciências) Qual é o planeta em que vivemos?</h3>
+<input type="radio" name="q7" value="a"> Marte<br>
+<input type="radio" name="q7" value="b"> Terra<br>
+<input type="radio" name="q7" value="c"> Júpiter<br>
+</div>
+
+<div class="pergunta">
+<h3>8️⃣ (Ciências) A água ferve a quantos °C?</h3>
+<input type="radio" name="q8" value="a"> 50°C<br>
+<input type="radio" name="q8" value="b"> 100°C<br>
+<input type="radio" name="q8" value="c"> 200°C<br>
+</div>
+
+<button type="button" onclick="corrigir()">Corrigir Simulado</button>
+</form>
+
+<p class="resultado" id="resultado"></p>
+
+</main>
+
+<footer>
+© 2025 – Plataforma de Estudos
+</footer>
+
+<script>
+function corrigir(){
+let pontos = 0;
+let total = 8;
+
+const respostas = {
+q1:"b", q2:"b", q3:"a", q4:"c",
+q5:"a", q6:"b", q7:"b", q8:"b"
+};
+
+for(let q in respostas){
+  const marcada = document.querySelector(`input[name="${q}"]:checked`);
+  if(marcada && marcada.value === respostas[q]){
+    pontos++;
+  }
+}
+
+document.getElementById("resultado").innerHTML =
+`✅ Você acertou ${pontos} de ${total} questões.`;
+}
+</script>
+
+</body>
+</html>
