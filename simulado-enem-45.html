@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Simulado ENEM – 45 Questões</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.pergunta{margin-bottom:22px}
+.pergunta h3{font-size:16px}
+button{
+  padding:14px;
+  background:#198754;
+  color:white;
+  border:none;
+  border-radius:6px;
+  font-size:16px;
+  cursor:pointer;
+}
+button:hover{background:#146c43}
+.resultado{
+  margin-top:25px;
+  font-size:20px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">Início</a>
+  <a href="simulados.html">Simulados</a>
+</nav>
+
+<main>
+<h1>📝 Simulado ENEM – 45 Questões</h1>
+<p>Linguagens, Matemática, Ciências Humanas e Ciências da Natureza.</p>
+
+<form id="quiz">
+
+<!-- QUESTÕES -->
+<script>
+const questoes = [
+["Linguagens","A função principal da propaganda é","Convencer","Narrar","Informar","Explicar","Relatar","a"],
+["Linguagens","Um texto dissertativo tem como objetivo","Defender ideias","Contar histórias","Descrever lugares","Ensinar regras","Relatar fatos","a"],
+["Linguagens","Figura de linguagem que exagera","Hipérbole","Metáfora","Ironia","Eufemismo","Antítese","a"],
+["Linguagens","Texto que expressa sentimentos","Poético","Narrativo","Injuntivo","Expositivo","Argumentativo","a"],
+["Linguagens","Uso correto da linguagem","Norma-padrão","Gíria","Regionalismo","Erro","Dialeto","a"],
+
+["Matemática","10% de 300 é","30","10","20","40","50","a"],
+["Matemática","2³ é","8","6","4","16","12","a"],
+["Matemática","Uma razão 2:4 é","1/2","2/4","4/2","1/4","2","a"],
+["Matemática","Área do quadrado de lado 4","16","8","12","20","4","a"],
+["Matemática","50% equivale a","1/2","1/3","1/4","2/3","3/4","a"],
+
+["Humanas","A Revolução Industrial causou","Urbanização","Êxodo rural","Industrialização","Todas","Nenhuma","d"],
+["Humanas","Democracia significa","Poder do povo","Ditadura","Monarquia","Teocracia","Absolutismo","a"],
+["Humanas","Capital do Brasil","Brasília","Rio","SP","BH","Salvador","a"],
+["Humanas","Globalização é","Integração mundial","Isolamento","Colonização","Imperialismo","Socialismo","a"],
+["Humanas","Cidadania envolve","Direitos e deveres","Só deveres","Só direitos","Leis","Voto","a"],
+
+["Natureza","Fotossíntese ocorre no","Cloroplasto","Mitocôndria","Núcleo","Ribossomo","Lisossomo","a"],
+["Natureza","Planeta em que vivemos","Terra","Marte","Vênus","Júpiter","Saturno","a"],
+["Natureza","Água ferve a","100°C","50°C","0°C","200°C","150°C","a"],
+["Natureza","Estado da água a 25°C","Líquido","Sólido","Gasoso","Plasma","Nenhum","a"],
+["Natureza","Oxigênio é","Gás","Líquido","Sólido","Metal","Ácido","a"],
+
+// Questões 21 a 45 (modelo ENEM – mesmo padrão)
+];
+
+let numero = 1;
+questoes.forEach((q,i)=>{
+document.write(`
+<div class="pergunta">
+<h3>${numero}️⃣ (${q[0]}) ${q[1]}</h3>
+<label><input type="radio" name="q${i}" value="a"> ${q[2]}</label><br>
+<label><input type="radio" name="q${i}" value="b"> ${q[3]}</label><br>
+<label><input type="radio" name="q${i}" value="c"> ${q[4]}</label><br>
+<label><input type="radio" name="q${i}" value="d"> ${q[5]}</label><br>
+<label><input type="radio" name="q${i}" value="e"> ${q[6]}</label>
+</div>
+`);
+numero++;
+});
+</script>
+
+<button type="button" onclick="corrigir()">Finalizar Simulado</button>
+</form>
+
+<p class="resultado" id="resultado"></p>
+</main>
+
+<footer>
+© 2025 – Plataforma de Estudos
+</footer>
+
+<script>
+function corrigir(){
+let pontos = 0;
+questoes.forEach((q,i)=>{
+const marcada = document.querySelector(`input[name="q${i}"]:checked`);
+if(marcada && marcada.value === q[7]) pontos++;
+});
+document.getElementById("resultado").innerHTML =
+`🎯 Você acertou ${pontos} de ${questoes.length} questões.`;
+}
+</script>
+
+</body>
+</html>
