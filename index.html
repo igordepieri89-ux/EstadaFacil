@@ -1,22 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+  <meta charset="UTF-8">
   <title>EstudaFácil</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #1e90ff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .materias a {
+      display: block;
+      background: white;
+      margin: 10px 0;
+      padding: 15px;
+      text-decoration: none;
+      color: #1e90ff;
+      font-weight: bold;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .materias a:hover {
+      background: #e8f1ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>EstudaFácil</h1>
-<p>Resumos simples para estudar melhor</p>
+<header>
+  <h1>EstudaFácil</h1>
+  <p>Resumos simples para estudar melhor</p>
+</header>
 
-<h2>Matérias</h2>
-<h2>Matérias</h2>
+<main>
+  <h2>📚 Matérias</h2>
 
-<a href="portugues.html">Português</a><br>
-<a href="matematica.html">Matemática</a><br>
-<a href="historia.html">História</a><br>
-<a href="geografia.html">Geografia</a><br>
-<a href="quimica.html">Química</a><br>
-<a href="fisica.html">Física</a><br>
+  <div class="materias">
+    <a href="portugues.html">Português</a>
+    <a href="matematica.html">Matemática</a>
+    <a href="historia.html">História</a>
+    <a href="geografia.html">Geografia</a>
+    <a href="quimica.html">Química</a>
+    <a href="fisica.html">Física</a>
+  </div>
+</main>
+
+<footer>
+  © 2025 EstudaFácil
+</footer>
 
 </body>
 </html>
